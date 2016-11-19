@@ -1,4 +1,6 @@
 
+#' @importFrom utils packageName
+
 notify_macos <- function(msg) {
 
   tn <- system.file(package = packageName(), "backends",
