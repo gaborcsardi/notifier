@@ -9,5 +9,7 @@ LazyData: true
 URL: https://github.com/gaborcsardi/notifier
 BugReports: https://github.com/gaborcsardi/notifier/issues
 RoxygenNote: 5.0.1.9000
+Roxygen: list(markdown = TRUE)
 Suggests: 
     testthat
+Encoding: UTF-8
