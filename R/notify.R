@@ -11,7 +11,15 @@ detect_os <- function() {
   }
 }
 
+#' Create a desktop notification
+#'
+#' @param msg Message to show. It may contain newline characters.
+#'
 #' @export
+#' @examples
+#' \dontrun{
+#' notify("Hello world!")
+#' }
 
 notify <- function(msg) {
   switch(
