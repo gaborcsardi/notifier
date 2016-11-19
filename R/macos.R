@@ -1,15 +1,15 @@
 
-escape_applescript <- function(x) {
-  gsub('"', '\\"', x, fixed = TRUE)
-}
-
 notify_macos <- function(msg) {
-  script <- paste0(
-    "display notification ",
-    "\"", escape_applescript(msg), "\""
-  )
 
-  cmd <- paste("osascript -e", shQuote(script))
-  system(cmd)
+  tn <- system.file(package = packageName(), "backends",
+                    "terminal-notifier", "bin", "terminal-notifier")
+
+  if (!file.exists(tn)) {
+    stop("Cannot find terminal-notifier executable, ", shQuote("notifier"),
+         " installation is broken", call. = FALSE)
+  }
+
+  system2(tn, c("-message", shQuote(msg)))
+
   invisible()
 }

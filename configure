@@ -1,0 +1,28 @@
+#!/bin/bash            # -*- mode: sh -*-
+# Anticonf (tm) script by Jeroen Ooms (2016)
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+
+    PKG_BREW_NAME=terminal-notifier
+
+    if brew --version >/dev/null 2>/dev/null; then
+	BREW_PKG_DIR=$(brew --prefix $PKG_BREW_NAME)
+    else
+	echo "Auto-brewing $PKG_BREW_NAME..."
+	BREWDIR="/tmp/homebrew"
+	rm -Rf $BREWDIR
+	mkdir -p $BREWDIR
+	curl -kfsSL https://github.com/Homebrew/brew/tarball/master \
+	    | tar xz --strip 1 -C $BREWDIR
+	BREW_DEPS=$($BREWDIR/bin/brew deps -n $PKG_BREW_NAME)
+	HOMEBREW_CACHE="/tmp" $BREWDIR/bin/brew install $BREW_DEPS \
+		      --force-bottle 2>&1 | sed 's/Warning/Note/gi'
+	HOMEBREW_CACHE="/tmp" $BREWDIR/bin/brew install $PKG_BREW_NAME \
+		      --force-bottle 2>&1 | sed 's/Warning/Note/gi'
+	BREW_PKG_DIR=$($BREWDIR/bin/brew --prefix $PKG_BREW_NAME)
+    fi
+
+    # configure runs in the root of the source package
+    mkdir -p inst/backends/terminal-notifier
+    cp -r ${BREW_PKG_DIR}/ inst/backends/terminal-notifier/
+fi
