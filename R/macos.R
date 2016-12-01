@@ -3,8 +3,8 @@
 
 notify_macos <- function(msg) {
 
-  tn <- system.file(package = packageName(), "backends",
-                    "terminal-notifier", "bin", "terminal-notifier")
+  tn <- system.file(package = packageName(),
+                    "tn", "bin", "terminal-notifier")
 
   if (!file.exists(tn)) {
     stop("Cannot find terminal-notifier executable, ", shQuote("notifier"),
