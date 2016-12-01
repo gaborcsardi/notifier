@@ -7,7 +7,7 @@ notify_macos <- function(msg) {
                     "tn", "bin", "terminal-notifier")
 
   if (!file.exists(tn)) {
-    stop("Cannot find terminal-notifier executable, ", shQuote("notifier"),
+    stop("Cannot find terminal-notifier executable, ", sQuote("notifier"),
          " installation is broken", call. = FALSE)
   }
 
