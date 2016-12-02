@@ -1,5 +1,5 @@
 
-notify_linux <- function(msg) {
+notify_linux <- function(msg, title) {
 
   ns <- Sys.which("notify-send")
 
@@ -9,7 +9,10 @@ notify_linux <- function(msg) {
          "the 'libnotify' package on Fedora Linux.")
   }
 
-  system2(ns, shQuote(c(" ", msg)))
+  ## Otherwise error
+  if (title == "") title <- " "
+
+  system2(ns, shQuote(c(title, msg)))
 
   invisible()
 }

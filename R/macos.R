@@ -1,7 +1,7 @@
 
 #' @importFrom utils packageName
 
-notify_macos <- function(msg) {
+notify_macos <- function(msg, title) {
 
   tn <- system.file(package = packageName(),
                     "tn", "bin", "terminal-notifier")
@@ -11,7 +11,7 @@ notify_macos <- function(msg) {
          " installation is broken", call. = FALSE)
   }
 
-  system2(tn, c("-message", shQuote(msg)))
+  system2(tn, c("-message", shQuote(msg), "-title", shQuote(title)))
 
   invisible()
 }

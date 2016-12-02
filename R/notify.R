@@ -14,6 +14,8 @@ detect_os <- function() {
 #' Create a desktop notification
 #'
 #' @param msg Message to show. It may contain newline characters.
+#' @param title Message title. Typically shown on the top, with
+#'   larger font.
 #'
 #' @export
 #' @examples
@@ -21,11 +23,11 @@ detect_os <- function() {
 #' notify("Hello world!")
 #' }
 
-notify <- function(msg) {
+notify <- function(msg, title = "R notification") {
   switch(
     detect_os(),
-    windows = notify_windows(msg),
-    macos   = notify_macos(msg),
-    linux   = notify_linux(msg)
+    windows = notify_windows(msg, title),
+    macos   = notify_macos(msg, title),
+    linux   = notify_linux(msg, title)
   )
 }

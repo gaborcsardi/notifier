@@ -1,16 +1,16 @@
 
-notify_windows <- function(msg) {
+notify_windows <- function(msg, title) {
 
   ## toaster is nicer, but only works from windows 8
   if (windows_version() < "6.2.9200") {
-    notify_notifu(msg)
+    notify_notifu(msg, title)
 
   } else {
-    notify_toaster(msg)
+    notify_toaster(msg, title)
   }
 }
 
-notify_notifu <- function(msg) {
+notify_notifu <- function(msg, title) {
 
   notifu <- system.file(package = packageName(), "notifu", "notifu.exe")
 
@@ -19,12 +19,12 @@ notify_notifu <- function(msg) {
          " installation is broken", call. = FALSE)
   }
 
-  system2(notifu, c("/m", shQuote(msg)), wait = FALSE)
+  system2(notifu, c("/m", shQuote(msg), "/p", shQuote(title)), wait = FALSE)
 
   invisible()
 }
 
-notify_toaster <- function(msg) {
+notify_toaster <- function(msg, title) {
 
   toaster <- system.file(package = packageName(), "toaster", "toast.exe")
 
@@ -33,7 +33,7 @@ notify_toaster <- function(msg) {
          " installation is broken", call. = FALSE)
   }
 
-  system2(toaster, c("-m", shQuote(msg)))
+  system2(toaster, c("-m", shQuote(msg), "-t", shQuote(title)))
 
   invisible()
 }
