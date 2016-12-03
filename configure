@@ -1,4 +1,4 @@
-#!/bin/bash            # -*- mode: sh -*-
+#!/bin/bash
 # Anticonf (tm) script by Jeroen Ooms (2016)
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
