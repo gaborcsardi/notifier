@@ -48,6 +48,12 @@ detect_os <- function() {
 
 notify <- function(msg, title = "R notification", image = NULL) {
 
+  stopifnot(
+    is.character(msg),
+    is.character(title), length(title) == 1,
+    is.null(image) || (is.character(image) && length(image) == 1)
+  )
+
   msg <- paste(msg, collapse = "\n")
 
   switch(
