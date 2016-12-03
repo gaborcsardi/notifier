@@ -7,7 +7,7 @@ detect_os <- function() {
   } else if (Sys.info()["sysname"] == "Linux") {
     "linux"
   } else {
-    stop("Unknown OS")
+    "linux"                             # Try Linux, might work, anyway
   }
 }
 
