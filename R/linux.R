@@ -1,5 +1,5 @@
 
-notify_linux <- function(msg, title) {
+notify_linux <- function(msg, title, image) {
 
   ns <- Sys.which("notify-send")
 
@@ -12,7 +12,17 @@ notify_linux <- function(msg, title) {
   ## Otherwise error
   if (title == "") title <- " "
 
-  system2(ns, shQuote(c(title, msg)))
+  if (is.null(image)) {
+    image <- normalizePath(system.file(package = packageName(), "R.png"))
+  }
+
+  args <- c(
+    "-i", shQuote(image),
+    shQuote(title),
+    shQuote(msg)
+  )
+
+  system2(ns, args)
 
   invisible()
 }

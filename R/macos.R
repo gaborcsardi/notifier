@@ -1,7 +1,7 @@
 
 #' @importFrom utils packageName
 
-notify_macos <- function(msg, title) {
+notify_macos <- function(msg, title, image) {
 
   tn <- system.file(package = packageName(),
                     "tn", "bin", "terminal-notifier")
@@ -11,7 +11,14 @@ notify_macos <- function(msg, title) {
          " installation is broken", call. = FALSE)
   }
 
-  system2(tn, c("-message", shQuote(msg), "-title", shQuote(title)))
+  args <- c(
+    "-message", shQuote(msg),
+    "-title", shQuote(title),
+    "-sender", "org.r-project.R",
+    if (! is.null(image)) c("-contentImage", shQuote(normalizePath(image)))
+  )
+
+  system2(tn, args)
 
   invisible()
 }

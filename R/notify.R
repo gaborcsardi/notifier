@@ -23,11 +23,11 @@ detect_os <- function() {
 #' notify("Hello world!")
 #' }
 
-notify <- function(msg, title = "R notification") {
+notify <- function(msg, title = "R notification", image = NULL) {
   switch(
     detect_os(),
-    windows = notify_windows(msg, title),
-    macos   = notify_macos(msg, title),
-    linux   = notify_linux(msg, title)
+    windows = notify_windows(msg, title, image),
+    macos   = notify_macos(msg, title, image),
+    linux   = notify_linux(msg, title, image)
   )
 }
