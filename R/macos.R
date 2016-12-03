@@ -11,10 +11,16 @@ notify_macos <- function(msg, title, image) {
          " installation is broken", call. = FALSE)
   }
 
+  bundle_id <- if (Sys.getenv("RSTUDIO", "") == "1") {
+    "org.rstudio.RStudio"
+  } else {
+    "org.r-project.R"
+  }
+
   args <- c(
     "-message", shQuote(msg),
     "-title", shQuote(title),
-    "-sender", "org.r-project.R",
+    "-sender", bundle_id,
     if (! is.null(image)) c("-contentImage", shQuote(normalizePath(image)))
   )
 
