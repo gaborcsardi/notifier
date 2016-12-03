@@ -13,3 +13,6 @@ Roxygen: list(markdown = TRUE)
 Imports:
     utils
 Encoding: UTF-8
+SystemRequirements: notify-send on Unix-like systems, other than macOS.
+    On DEB-based systems you probably need 'libnotify-bin', on RPM-based
+    systems 'libnotify'.
