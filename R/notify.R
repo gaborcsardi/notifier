@@ -47,6 +47,9 @@ detect_os <- function() {
 #' }
 
 notify <- function(msg, title = "R notification", image = NULL) {
+
+  msg <- paste(msg, collapse = "\n")
+
   switch(
     detect_os(),
     windows = notify_windows(msg, title, image),
