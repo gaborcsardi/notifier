@@ -54,7 +54,7 @@ notify <- function(msg, title = "R notification", image = NULL) {
     is.null(image) || (is.character(image) && length(image) == 1)
   )
 
-  msg <- paste(msg, collapse = "\n")
+  msg <- paste(msg, collapse = " ")
 
   switch(
     detect_os(),
