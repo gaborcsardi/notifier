@@ -50,7 +50,7 @@ install_windows <- function() {
     if(getRversion() < "3.3.0") do.call("setInternet2", list())
     on.exit(unlink("toaster.zip"), add = TRUE)
     download.file(
-      "https://github.com/rwinlib/toaster/releases/download/2016-12-04/toaster.zip",
+      "https://github.com/rwinlib/toaster/releases/download/2016-12-04-2/toaster.zip",
       "toaster.zip",
       quiet = TRUE
     )
