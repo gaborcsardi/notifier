@@ -1,16 +1,4 @@
 
-detect_os <- function() {
-  if (.Platform$OS.type == "windows") {
-    "windows"
-  } else if (Sys.info()["sysname"] == "Darwin") {
-    "macos"
-  } else if (Sys.info()["sysname"] == "Linux") {
-    "linux"
-  } else {
-    "linux"                             # Try Linux, might work, anyway
-  }
-}
-
 #' Create a desktop notification
 #'
 #' How exactly the notification appears is platform dependent:

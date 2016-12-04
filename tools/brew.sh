@@ -27,6 +27,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     BREW_PKG_DIR=$($BREWBIN --prefix $PKG_BREW_NAME)
 
     # configure runs in the root of the source package
-    mkdir -p inst/tn
-    cp -r ${BREW_PKG_DIR}/ inst/tn
+    mkdir -p ${R_PACKAGE_DIR}/tn
+    cp -r ${BREW_PKG_DIR}/ ${R_PACKAGE_DIR}/tn
 fi
