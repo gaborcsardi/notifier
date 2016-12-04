@@ -23,16 +23,18 @@ allow PNG files, only ICO icons.}
 }
 \description{
 How exactly the notification appears is platform dependent:
-* On macOS, we use the `terminal-notifier` tool, see
-  https://github.com/julienXX/terminal-notifier
-* On Linux and *BSD systems, including Solaris the `notify-send`
-  command line tool is used. This requires the `libnotify-bin`
-  package on Ubuntu/Debian and similar systems, or the `libnotify`
-  package on RedHat/CentOS/Fedora and similar systems.
-* On Windows 8 or newer Windows versions we use the `toaster` tool,
-  see https://github.com/nels-o/toaster.
-* On older Windows versions we use the `notifu` program, see
-  https://www.paralint.com/projects/notifu.
+\itemize{
+\item On macOS, we use the \code{terminal-notifier} tool, see
+https://github.com/julienXX/terminal-notifier
+\item On Linux and *BSD systems, including Solaris the \code{notify-send}
+command line tool is used. This requires the \code{libnotify-bin}
+package on Ubuntu/Debian and similar systems, or the \code{libnotify}
+package on RedHat/CentOS/Fedora and similar systems.
+\item On Windows 8 or newer Windows versions we use the \code{toaster} tool,
+see https://github.com/nels-o/toaster.
+\item On older Windows versions we use the \code{notifu} program, see
+https://www.paralint.com/projects/notifu.
+}
 }
 \details{
 All notification systems support showing a title and an image,
