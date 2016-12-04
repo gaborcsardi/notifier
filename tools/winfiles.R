@@ -21,7 +21,7 @@ downloader <- function() {
     if(getRversion() < "3.3.0") setInternet2()
     on.exit(unlink("toaster.zip"), add = TRUE)
     download.file(
-      "https://github.com/rwinlib/toaster/releases/download/2016-12-01/toaster.zip",
+      "https://github.com/rwinlib/toaster/releases/download/2016-12-04/toaster.zip",
       "toaster.zip",
       quiet = TRUE
     )
