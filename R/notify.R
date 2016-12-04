@@ -25,7 +25,8 @@
 #'   file here, to show instead of the R logo. This currently does not
 #'   work on older Windows versions (before Windows 8), which does not
 #'   allow PNG files, only ICO icons.
-#' @param timeout Number of seconds before notification expires (currently linux only).
+#' @param timeout Number of seconds before notification expires
+#'   (currently linux only).
 #'
 #' @export
 #' @examples
@@ -35,17 +36,18 @@
 #' notify("Hello world!", title = "Introduction", image = "mylogo.png")
 #' }
 
-notify <- function(msg, title = "R notification", image = NULL, timeout = 10L) {
+notify <- function(msg, title = "R notification", image = NULL,
+                   timeout = 10) {
 
   stopifnot(
     is.character(msg),
     is.character(title), length(title) == 1,
-    is.null(image) || (is.character(image) && length(image) == 1)
+    is.null(image) || (is.character(image) && length(image) == 1),
+    is.numeric(timeout), length(timeout) == 1, !is.na(timeout),
+    as.integer(timeout) == timeout
   )
 
   msg <- paste(msg, collapse = " ")
-  timeout <- as.numeric(timeout)
-  stopifnot(!is.na(timeout))
 
   switch(
     detect_os(),

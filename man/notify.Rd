@@ -4,7 +4,7 @@
 \alias{notify}
 \title{Create a desktop notification}
 \usage{
-notify(msg, title = "R notification", image = NULL, timeout = 10L)
+notify(msg, title = "R notification", image = NULL, timeout = 10)
 }
 \arguments{
 \item{msg}{Message to show. It may contain newline characters.}
@@ -19,7 +19,8 @@ file here, to show instead of the R logo. This currently does not
 work on older Windows versions (before Windows 8), which does not
 allow PNG files, only ICO icons.}
 
-\item{timeout}{Number of seconds before notification expires (currently linux only).}
+\item{timeout}{Number of seconds before notification expires
+(currently linux only).}
 }
 \description{
 How exactly the notification appears is platform dependent:

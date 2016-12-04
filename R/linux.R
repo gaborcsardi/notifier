@@ -16,12 +16,9 @@ notify_linux <- function(msg, title, image, timeout) {
     image <- normalizePath(system.file(package = packageName(), "R.png"))
   }
 
-  expire <- as.integer(1e3L*timeout)
-  if (is.na(expire)) expire <- 1e3L*10L
-  
   args <- c(
     "-i", shQuote(image),
-    "-t", expire,
+    "-t", timeout * 1000,
     shQuote(title),
     shQuote(msg)
   )
