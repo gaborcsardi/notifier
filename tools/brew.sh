@@ -29,4 +29,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # configure runs in the root of the source package
     mkdir -p ${R_PACKAGE_DIR}/tn
     cp -r ${BREW_PKG_DIR}/ ${R_PACKAGE_DIR}/tn
+
+    # Find the terminal-notifier binary and write its place to a file,
+    # so we don't have to do this search at runtime. There are two files
+    # (at least on my system), one is a simple script that executes the
+    # other one, but it refers to it with an absolute path, so we cannot
+    # use that. We try to pick the binary one.
+    binary=$(cd ${R_PACKAGE_DIR}/tn &&
+		    find . -type f -perm -o=x -exec file \{\} \; |
+		    grep -v "shell script" |
+		    cut -d: -f1)
+    echo $binary > ${R_PACKAGE_DIR}/tn/binary
 fi
