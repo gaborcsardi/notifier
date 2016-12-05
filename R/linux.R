@@ -1,5 +1,5 @@
 
-notify_linux <- function(msg, title, image, timeout) {
+notify_linux <- function(msg, title, image) {
 
   ns <- Sys.which("notify-send")
 
@@ -18,7 +18,6 @@ notify_linux <- function(msg, title, image, timeout) {
 
   args <- c(
     "-i", shQuote(image),
-    "-t", timeout * 1000,
     shQuote(title),
     shQuote(msg)
   )
