@@ -17,7 +17,7 @@ windows_version <- (function() {
     }
     
     ver <- paste(ver, collapse = "")  
-    ver <- sub("^.*(Version|版本)[ ]+([0-9\\.]+).*$", "\\2", ver,
+    ver <- sub("^.*(Version|\\\u7248\\\u672c)[ ]+([0-9\\\\.]+).*$", "\\2", ver,
                perl = TRUE, ignore.case = TRUE)
     ver <- package_version(ver)
 
