@@ -4,7 +4,7 @@
 
 notify_macos <- function(msg, title, image) {
 
-  tn <- system.file(package = packageName(), "bin", "macnotifier")
+  tn <- system.file(package = packageName(), "macos", "macnotifier")
 
   bundle_id <- if (Sys.getenv("RSTUDIO", "") == "1") {
     "org.rstudio.RStudio"
