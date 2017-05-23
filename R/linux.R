@@ -16,13 +16,8 @@ notify_linux <- function(msg, title, image) {
     image <- normalizePath(system.file(package = packageName(), "R.png"))
   }
 
-  args <- c(
-    "-i", shQuote(image),
-    shQuote(title),
-    shQuote(msg)
-  )
-
-  system2(ns, args)
+  args <- c("-i", image, title, msg)
+  run(ns, args)
 
   invisible()
 }

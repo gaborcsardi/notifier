@@ -45,4 +45,3 @@ notify("Hello world!", title = "Introduction")
 notify("Hello world!", title = "Introduction", image = "mylogo.png")
 }
 }
-

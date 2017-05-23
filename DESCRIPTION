@@ -8,10 +8,13 @@ License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/gaborcsardi/notifier
 BugReports: https://github.com/gaborcsardi/notifier/issues
-RoxygenNote: 5.0.1.9000
+RoxygenNote: 6.0.1.9000
 Roxygen: list(markdown = TRUE)
 Imports:
+    processx,
     utils
+Remotes: 
+    r-pkgs/processx
 Encoding: UTF-8
 SystemRequirements: notify-send on Unix-like systems, other than macOS.
     On DEB-based systems you probably need 'libnotify-bin', on RPM-based

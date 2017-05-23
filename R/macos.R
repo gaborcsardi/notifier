@@ -1,5 +1,6 @@
 
 #' @importFrom utils packageName
+#' @importFrom processx run
 
 notify_macos <- function(msg, title, image) {
 
@@ -12,13 +13,13 @@ notify_macos <- function(msg, title, image) {
   }
 
   args <- c(
-    "-message", shQuote(msg),
-    "-title", shQuote(title),
+    "-message", msg,
+    "-title", title,
     "-sender", bundle_id,
-    if (! is.null(image)) c("-contentImage", shQuote(normalizePath(image)))
+    if (! is.null(image)) c("-contentImage", normalizePath(image))
   )
 
-  system2(tn, args)
+  run(tn, args, timeout = 2)
 
   invisible()
 }

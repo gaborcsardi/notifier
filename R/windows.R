@@ -10,6 +10,8 @@ notify_windows <- function(msg, title, image) {
   }
 }
 
+#' @importFrom processx run
+
 notify_notifu <- function(msg, title, image) {
 
   notifu <- system.file(package = packageName(), "notifu", "notifu.exe")
@@ -23,13 +25,9 @@ notify_notifu <- function(msg, title, image) {
     image <- normalizePath(system.file(package = packageName(), "R.ico"))
   }
 
-  args <- c(
-    "/m", shQuote(msg),
-    "/p", shQuote(title),
-    "/i", shQuote(image)
-  )
-
-  system2(notifu, args, wait = FALSE)
+  ## TODO: in the background
+  args <- c("/m", msg, "/p", title, "/i", image)
+  run(notifu, args, timeout = 2)
 
   invisible()
 }
@@ -47,13 +45,8 @@ notify_toaster <- function(msg, title, image) {
     image <- normalizePath(system.file(package = packageName(), "R.png"))
   }
 
-  args <- c(
-    "-m", shQuote(msg),
-    "-t", shQuote(title),
-    "-p", shQuote(image)
-  )
-
-  system2(toaster, args)
+  args <- c("-m", msg, "-t", title, "-p", image)
+  run(toaster, args, timeout = 2)
 
   invisible()
 }
