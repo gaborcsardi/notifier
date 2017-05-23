@@ -1,0 +1,13 @@
+
+OBJECTS = dummy.o
+
+.PHONY: all clean
+
+all: macnotifier $(SHLIB)
+
+macnotifier: main.m AppDelegate.m
+	$(CC) $(CFLAGS) main.m AppDelegate.m -o $@ \
+	      -framework AppKit -framework ScriptingBridge
+
+clean:
+	rm -rf macnotifier $(SHLIB) $(OBJECTS)

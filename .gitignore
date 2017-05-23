@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 /inst/tn
+/src/*.o
+/src/macnotifier
+/src/notifier.so
+/src/macnotifier.dSYM

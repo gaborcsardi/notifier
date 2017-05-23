@@ -61,7 +61,7 @@ install_windows <- function() {
 }
 
 install_macos <- function() {
-  system2("tools/brew.sh")
+  ## Nothing extra to do on macos
 }
 
 install_linux <- function() {

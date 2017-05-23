@@ -5,3 +5,5 @@
 ^.travis.yml$
 ^appveyor.yml$
 ^inst/tn$
+^src/macnotifier$
+^src/macnotifier\.dSYM$

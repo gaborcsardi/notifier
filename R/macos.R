@@ -3,13 +3,7 @@
 
 notify_macos <- function(msg, title, image) {
 
-  location <- readLines(system.file(package = packageName(), "tn", "binary"))
-  tn <- system.file(package = packageName(), "tn", location)
-
-  if (!file.exists(tn)) {
-    stop("Cannot find terminal-notifier executable, ", sQuote("notifier"),
-         " installation is broken", call. = FALSE)
-  }
+  tn <- system.file(package = packageName(), "bin", "macnotifier")
 
   bundle_id <- if (Sys.getenv("RSTUDIO", "") == "1") {
     "org.rstudio.RStudio"
