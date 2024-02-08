@@ -12,10 +12,16 @@ Send desktop notifications from R, on macOS, Windows and Linux.
 
 ## Installation
 
-Once on CRAN, install the package with
+`notifier` has been [removed from the CRAN repository by request of the maintainer](https://cran.r-project.org/web/packages/notifier/index.html), but version 1.0.0 can still be installed from the CRAN archives with
 
 ```r
-install.packages("notifier")
+install.packages("https://cran.r-project.org/src/contrib/Archive/notifier/notifier_1.0.0.tar.gz")
+```
+
+To install the latest version from GitHub, however, you may issue the following instead:
+
+```r
+remotes::install_github("gaborcsardi/notifier")
 ```
 
 `notifier` has no R package dependencies, and no system requirements
